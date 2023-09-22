@@ -1,19 +1,23 @@
-class Player:
-    def play(self):
-        print("The player is playing cricket.")
+class Student:
+    def __init__(self, name, roll_number, cgpa):
+        self.name = name
+        self.roll_number = roll_number
+        self.cgpa = cgpa
 
-class Batsman(Player):
-    def play(self):
-        print("The batsman is batting.")
+    def __repr__(self):
+        return f"Student(name='{self.name}', roll_number='{self.roll_number}', cgpa={self.cgpa})"
 
-class Bowler(Player):
-    def play(self):
-        print("The bowler is bowling.")
+def sort_students(student_list):
+    sorted_students = sorted(student_list, key=lambda x: x.cgpa, reverse=True)
+    return sorted_students
 
-# Create objects of Batsman and Bowler classes and call the play() method for each object.
-if __name__ == "__main__":
-    batsman = Batsman()
-    bowler = Bowler()
+# Sample usage
+students = [
+    Student("Alice", "S12345", 3.8),
+    Student("Bob", "S67890", 3.5),
+    Student("Charlie", "S13579", 3.9),
+]
 
-    batsman.play()
-    bowler.play()
+sorted_students = sort_students(students)
+for student in sorted_students:
+    print(student)
